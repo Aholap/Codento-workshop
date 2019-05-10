@@ -14,9 +14,30 @@ const App = () =>  {
 
   const[index, setIndex] = useState(0)
 
-  const handleClick = () => {
-    setIndex(index + 1);
-    console.log("EFAFA")
+  const handleGClick = () => {
+    if(index===pets.length-1){
+      setIndex(0)
+    }
+    else{
+      setIndex(index + 1);
+    }
+    
+    
+  }
+
+
+  const handleBClick = () => {
+  
+    if(index===pets.length-1){
+      
+      setIndex(0)
+    }
+    else{
+     
+      setIndex(index + 1)
+    }
+    
+    
   }
 
   
@@ -31,15 +52,15 @@ const App = () =>  {
   useEffect(() => {
     fetchPets()
     
-}, []);
 
+}, []);
   return (
     <div className="App">
       <Header title={"LOL"}/>
-      <Content imageUrl={pets[index] && pets[index].imageUrl} title={pets[index] && pets[index].title} />
+      <Content imageUrl={pets[index] && pets[index].imageUrl} title={pets[index] && pets[index].title}  />
       <Footer>
-        <Button onClick={handleClick} icon="heart" />
-        <Button onClick={handleClick} icon="heart-broken" />
+        <Button onClick={handleGClick} icon="heart" />
+        <Button onClick={handleBClick} icon="heart-broken" />
       </Footer>
       
     </div>
